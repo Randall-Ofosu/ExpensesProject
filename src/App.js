@@ -2,7 +2,7 @@ import Expense from "./components/Expenses/Expense";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
-  const expense = [
+  const expenses = [
     {
       id: "1",
       title: "Car Insurance",
@@ -28,12 +28,16 @@ const App = () => {
       date: new Date(2022, 8, 2),
     }
   ];
+  const addExpenseHandler = (expense) => {
+    console.log('In my app.js');
+    console.log(expense);
+  }
   return (
     <div>
     <h2>Let's get started!</h2>
-    
-    <NewExpense />
-    <Expense items={expense}/>
+
+    <NewExpense onAddExpense={addExpenseHandler} />
+    <Expense items={expenses}/>
     </div>
   );
 }
